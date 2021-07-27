@@ -1,3 +1,9 @@
 body{
   background-color: black;
 }
+
+#HOME {
+  margin: 0;
+  padding: 0;
+  border: 1px solid red;
+}

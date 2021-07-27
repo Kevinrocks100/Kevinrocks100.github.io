@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
@@ -14,82 +13,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-light navbar-expand-md sticky-top bg-white">
-            <div class="container-fluid"><a class="navbar-brand" href="#">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link active" href="#">Budgeting</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Savings</a></li>
-                    </ul>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="login.html"><button class="btn btn-outline-primary" type="button">Log In</button></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="signup.html"><button class="btn btn-primary" type="button">Signup</button></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="modal fade" role="dialog" tabindex="-1" id="signup">
-            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4>Sign In</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group mb-3">
-                                <div class="input-group"><span class="text-primary input-group-text"><i class="fa fa-envelope-o"></i></span><input class="form-control" type="email" required="" placeholder="Email"></div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="input-group"><span class="text-primary input-group-text"><i class="fa fa-lock"></i></span><input class="form-control" type="password" required="" placeholder="Password"></div>
-                            </div>
-                            <div class="form-group mb-3"><button class="btn btn-primary btn-lg" style="width: 100%;" type="button">Log in</button></div>
-                        </form>
-                        <hr style="background-color: #bababa;">
-                        <p class="text-center">Or&nbsp;<a class="text-decoration-none" href="#">Forget password</a></p>
-                        <p class="text-center">Don't have an account? &nbsp;<a class="text-decoration-none" href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signin">Sign Up</a></p>
-                    </div>
-                </div>
-            </div>
+  </head>
+  <body>
+    <div class="container-fluid" id="HOME">
+      <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
+        <div class="container-fluid" id="container-fluid"><a class="navbar-brand text-white" href="index.html">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active text-white" href="budgeting.html">Budgeting</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="savings.html">Savings</a></li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link active" href="login.html"><button class="btn btn-outline-primary" type="button">Log In</button></a></li>
+              <li class="nav-item"><a class="nav-link active" href="signup.html"><button class="btn btn-primary" type="button">Signup</button></a></li>
+            </ul>
+          </div>
         </div>
-        <div class="modal fade" role="dialog" tabindex="-1" id="signin">
-            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4>Sign Up Now</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="text-center"><button class="btn btn-primary text-start" style="width: 100%;" type="button"><i class="fa fa-facebook"></i>&nbsp; Continue with Facebook</button></div>
-                        <div class="text-center mt-2"><button class="btn btn-light text-start border-dark" style="width: 100%;" type="button"><i class="fa fa-google"></i>&nbsp; Continue with Google</button></div>
-                        <form class="mt-4">
-                            <div class="form-group mb-3">
-                                <div class="input-group"><span class="text-primary input-group-text"><i class="fa fa-user-o"></i></span><input class="form-control" type="text" required="" placeholder="Full Name"></div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="input-group"><span class="text-primary input-group-text"><i class="fa fa-envelope-o"></i></span><input class="form-control" type="email" required="" placeholder="Email"></div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="input-group"><span class="text-primary input-group-text"><i class="fa fa-lock"></i></span><input class="form-control" type="password" required="" placeholder="Password"></div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" required="" checked=""><label class="form-check-label" for="formCheck-1">I agree all the terms and conditions.</label></div>
-                            </div>
-                            <div class="form-group mb-3"><button class="btn btn-primary btn-lg" style="width: 100%;" type="button">Sign Up</button></div>
-                        </form>
-                        <hr style="background-color: #bababa;">
-                        <p class="text-center">Already have an Account?&nbsp;<a class="text-decoration-none" href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signup">Log In</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <h1>List of school items</h1>
-
-    <form class="form-inline">
+      </nav>
+      <h1>List of school items</h1>
+      <form class="form-inline">
         <div class="form-group mb-2">
           <label for="staticEmail2" class="sr-only">Email</label>
           <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
@@ -100,95 +42,92 @@
         </div>
         <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
       </form>
-
-    <div class="form-inline">
+      <div class="form-inline">
         <div class="form-group mb-2">
-    <label>Total tuition payment</label>
-    <div class="input-group mb-3">
+          <label>Total tuition payment</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </div>
+      <label>Housing(If applicable)</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    </div>
-</div>
-
-    <label>Housing(If applicable)</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Supplies</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Supplies</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Groceries</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Groceries</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Meal plan</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Meal plan</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Transportation/parking</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Transportation/parking</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Laundry</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Laundry</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Visits home</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Visits home</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Dorm room items</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Dorm room items</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Extracurriculars</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Extracurriculars</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Entertainment</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Entertainment</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Additional Classes/Fees</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Additional Classes/Fees</label>
-    <div class="input-group mb-3">
+      </div>
+      <label>Others</label>
+      <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
-    </div>
-    <label>Others</label>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1">
+      </div>
     </div>
     <footer class="bg-light footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 text-center text-lg-start my-auto h-100">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Contact</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">© Brand 2021. All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-6 text-center text-lg-end my-auto h-100">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
-                    </ul>
-                </div>
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+              <ul class="list-inline mb-2">
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><span>⋅</span></li>
+                <li class="list-inline-item"><a href="#">Contact</a></li>
+                <li class="list-inline-item"><span>⋅</span></li>
+                <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+                <li class="list-inline-item"><span>⋅</span></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+              </ul>
+              <p class="text-muted small mb-4 mb-lg-0">© KCP Budgeting 2021. All Rights Reserved.</p>
             </div>
+            <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </footer>
+      </footer>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
-  <script src="public/savings.js"></script>
-
-</body>
-
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="public/savings.js"></script>
+  </body>
 </html>
