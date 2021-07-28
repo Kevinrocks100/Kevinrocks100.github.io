@@ -11,8 +11,7 @@ var firebaseConfig = {
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         
-        document.getElementByld("HOME").innerHTML=``
-        <div class="container-fluid">
+        document.getElementByld("HOME").innerHTML=``<div class="container-fluid">
             <nav class="navbar navbar-light navbar-expand-md sticky-top bg-white">
                 <div class="container-fluid"><a class="navbar-brand" href="#">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
