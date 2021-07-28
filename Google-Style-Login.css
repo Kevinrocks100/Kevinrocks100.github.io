@@ -6,20 +6,7 @@ body{
   background-color: grey;
   margin: 0;
   padding: 0;
-}
-
-#carouselExampleBackground {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-.carousel-inner:after {
-  content:"";
-  position:absolute;
-  background:rgba(0,0,0,0.5);
   height: 625px;
-  width: 100%;
 }
 
 #a {
