@@ -1,8 +1,33 @@
 body{
-  background-color: white;
+  background-color: black;
 }
 
 #HOME {
   margin: 0;
   padding: 0;
+  text-align: center;
+}
+
+#home {
+  background-color: white;
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.class {
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.CLass {
+  position: relative;
+  width: 25%;
+  margin-left: 25%;
+}
+
+.Class {
+  position: relative;
+  width: 25%;
 }
