@@ -26,7 +26,13 @@ var firebaseConfig = {
         firebase.database().ref("Savings/" + 'JustSave/' + `${user.uid}/`).on("value", function(lists){
             lists.forEach(function(data){
                 var info = data.val()
-                var postkeyOne = data.key
+                var amtTwo = info.amtTwo;
+                function percentage(amtTwo){
+                    //return (amtTwo/100)*amtTwo;
+                    return (amtTwo/amtTwo)*100
+                }
+                var width = percentage(amtTwo,amtTwo)+"%";
+                var postkeyOne = data.key;
                 document.getElementById("list_div").innerHTML += `
                 <div class="eachGoalJust" id="${postkeyOne}" data-toggle="modal" data-target="#justsaveupdate">
                 <div class="card bg-dark text-white">
@@ -36,7 +42,7 @@ var firebaseConfig = {
                     <h3 class="card-title">${info.goalNameOne}</h3>
                     <p class="card-text"></p>
                     <div class="progress">
-                      <progress class="progress is-success" value="100" max="100" ></progress>
+                        <div class="progress-bar" role="progressbar" style="width: ${width}" aria-valuenow="${amtTwo}" aria-valuemin="0" aria-valuemax="${amtTwo}"></div>
                     </div>
                   </div>
                 </div>
@@ -158,6 +164,14 @@ var firebaseConfig = {
         firebase.database().ref("Savings/" + 'ExactAmount/' + `${user.uid}/`).on("value", function(lists){
             lists.forEach(function(data){
                 var info = data.val()
+                var amtOne = info.amtOne;
+                var objAmt = info.objAmt;
+                function percentage(amtOne,objAmt){
+                    //return (amtTwo/100)*amtTwo;
+                    return (amtOne/objAmt)*100
+                }
+                var width = percentage(amtOne,objAmt)+"%"
+                alert(width)
                 var postkeyTwo = data.key
                 document.getElementById("list_div").innerHTML += `
                 <div class="eachGoalExact" id="${postkeyTwo}" data-toggle="modal" data-target="#exactamtupdate">
@@ -168,7 +182,7 @@ var firebaseConfig = {
                     <h3 class="card-title">${info.goalNameOne}</h3>
                     <p class="card-text"></p>
                     <div class="progress">
-                      <progress class="progress is-success" value="100" max="100" ></progress>
+                        <div class="progress-bar" role="progressbar" style="width: ${width}" aria-valuenow="${amtOne}" aria-valuemin="0" aria-valuemax="${objAmt}"></div>
                     </div>
                   </div>
                 </div>
