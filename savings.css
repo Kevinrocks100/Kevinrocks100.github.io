@@ -6,31 +6,17 @@ body{
   text-align: center;
 }
 
-#B {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
+#main {
+  height: 500px;
+  margin: 0;
+  padding: 0;
 }
 
-#C {
+#botton {
+  text-align: center;
   position: relative;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-}
-
-#D {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-}
-
-.overlay-div{
-   height: 100%;
-   width: 100%;
-   position: absolute;
-   background-color: #000;
-   opacity: 0.5;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
