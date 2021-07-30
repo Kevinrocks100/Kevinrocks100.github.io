@@ -23,7 +23,7 @@ login.addEventListener('click', e => {
 document.addEventListener('keydown', function (key) {
   if (key.which === 13) {
   const auth = firebase.auth();
-  const promise = auth.signInWithEmailAndPassword(Liukevin, password).catch(function(error) {
+  const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
       alert("Error : " + errorMessage);
