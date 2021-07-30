@@ -1,12 +1,12 @@
 var firebaseConfig = {
-apiKey: "AIzaSyAE9G_OkAFpyEqDRh4L3PpOgg9N1fl_X6g",
-authDomain: "kpcbudgeting.firebaseapp.com",
-projectId: "kpcbudgeting",
-storageBucket: "kpcbudgeting.appspot.com",
-messagingSenderId: "97358543124",
-appId: "1:97358543124:web:95cb0bd86c1459ce632a01"
+  apiKey: "AIzaSyAE9G_OkAFpyEqDRh4L3PpOgg9N1fl_X6g",
+  authDomain: "kpcbudgeting.firebaseapp.com",
+  databaseURL: "https://kpcbudgeting-default-rtdb.firebaseio.com",
+  projectId: "kpcbudgeting",
+  storageBucket: "kpcbudgeting.appspot.com",
+  messagingSenderId: "97358543124",
+  appId: "1:97358543124:web:95cb0bd86c1459ce632a01"
 };
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var email = document.getElementById("inputEmail").value
 var password = document.getElementById("inputPassword").value
@@ -16,7 +16,7 @@ login.addEventListener('click', e => {
     const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log("Error : " + errorMessage);
+        alert("Error : " + errorMessage);
       });
     promise.catch(e => alert(e.message));
 })
@@ -26,7 +26,7 @@ document.addEventListener('keydown', function (key) {
   const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log("Error : " + errorMessage);
+      alert("Error : " + errorMessage);
     });
   promise.catch(e => alert(e.message));
   }
