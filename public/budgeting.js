@@ -39,7 +39,7 @@ var firebaseConfig = {
             var rent = parseFloat(info.Rent);
             if(budget > rent){
                 //alert("You are within your budget, you don't need to make any major adjustments")
-                document.getElementById("budgetRec").innerHTML = "You are within your budget, you don't need to make any major adjustments. You have " + (budget-rent) + " dollars left"
+                document.getElementById("budgetRec").innerHTML = "Your budget is " + budget + " and your total expenses are " + rent + " You are within your budget, you don't need to make any major adjustments.";
             }
         })
 

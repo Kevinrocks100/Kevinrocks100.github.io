@@ -40,6 +40,7 @@ var firebaseConfig = {
                   <div class="overlay-div"></div>
                   <div class="card-img-overlay">
                     <h3 class="card-title">${info.goalNameOne}</h3>
+                    <h3 class="card-title">You currently have $ ${info.amtTwo} saved up for your goal ${info.goalNameOne}</h3>
                     <p class="card-text"></p>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: ${width}" aria-valuenow="${amtTwo}" aria-valuemin="0" aria-valuemax="${amtTwo}"></div>
@@ -97,6 +98,7 @@ var firebaseConfig = {
                   <div class="overlay-div"></div>
                   <div class="card-img-overlay">
                     <h3 class="card-title">${info.goalNameOne}</h3>
+                    <h3 class="card-title">You currently have $ ${info.amtOne} out of the necessary $ ${info.objAmt} saved up for your goal ${info.goalNameOne}</h3>
                     <p class="card-text"></p>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: ${width}" aria-valuenow="${amtOne}" aria-valuemin="0" aria-valuemax="${objAmt}"></div>
