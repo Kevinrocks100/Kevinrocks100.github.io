@@ -8,27 +8,61 @@ var firebaseConfig = {
   appId: "1:97358543124:web:95cb0bd86c1459ce632a01"
 };
 firebase.initializeApp(firebaseConfig);
-var email = document.getElementById("inputEmail").value
-var password = document.getElementById("inputPassword").value
-var login = document.getElementById("login")
-login.addEventListener('click', e => {
+// var email = document.getElementById("email").value
+// var password = document.getElementById("password").value
+// var login = document.getElementById("login")
+// login.addEventListener('click', e => {
+//     const auth = firebase.auth();
+//     const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+//         var errorCode = error.code;
+//         var errorMessage = error.message;
+//         alert("Error : " + errorMessage);
+//       });
+//     promise.catch(e => alert(e.message));
+// })
+// document.addEventListener('keydown', function (key) {
+//   if (key.which === 13) {
+//   const auth = firebase.auth();
+//   const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//       alert("Error : " + errorMessage);
+//     });
+//   promise.catch(e => alert(e.message));
+//   }
+// });
+// firebase.auth().onAuthStateChanged(function(user) {
+//   if (user) {
+//     var user = firebase.auth().currentUser;
+//     window.location = "index.html";
+//     console.log(user)
+//   } 
+// });
+const btnLogin = document.getElementById('login');
+const Txtemail = document.getElementById('email');
+const Txtpassword = document.getElementById('password');
+  btnLogin.addEventListener('click', e => {
+    const email = Txtemail.value;
+    const password = Txtpassword.value;
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert("Error : " + errorMessage);
+        console.log("Error : " + errorMessage);
       });
-    promise.catch(e => alert(e.message));
+    promise.catch(e => console.log(e.message));
 })
 document.addEventListener('keydown', function (key) {
   if (key.which === 13) {
+          const email = Txtemail.value;
+  const password = Txtpassword.value;
   const auth = firebase.auth();
   const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
-      alert("Error : " + errorMessage);
+      console.log("Error : " + errorMessage);
     });
-  promise.catch(e => alert(e.message));
+  promise.catch(e => console.log(e.message));
   }
 });
 firebase.auth().onAuthStateChanged(function(user) {

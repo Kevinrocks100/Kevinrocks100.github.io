@@ -1,72 +1,107 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>KCP Budgeting</title>
     <meta name="description" content="A simple and free way for college students to finance their finances.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="login.css">
-    <script src="public/login.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
-      <div class="container-fluid" id="container-fluid"><a class="navbar-brand text-white" href="index.html">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link active text-white" href="budgeting.html">Budgeting</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="savings.html">Savings</a></li>
-          </ul>
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="login.html"><button class="btn btn-outline-primary" type="button">Log In</button></a></li>
-            <li class="nav-item"><a class="nav-link active" href="signup.html"><button class="btn btn-primary" type="button">Signup</button></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container-fluid" id="A">
-      <div class="login-card" id="B">
-        <img class="profile-img-card" id="C" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" height="150px">
+</head>
+
+<body>
+
+    <!-- <div class="login-card"><img class="profile-img-card" src="assets/img/avatar_2x.png">
         <p class="profile-name-card"> </p>
-        <form class="form-signin"><span class="reauth-email"> </span><input class="form-control" type="email" id="inputEmail" required="" placeholder="Email address" autofocus=""><input class="form-control" type="password" id="inputPassword" required="" placeholder="Password"><button class="btn btn-primary btn-lg d-block btn-signin w-100" id="login" type="submit">Login</button></form><a class="forgot-password" href="#">Forgot your password?</a>
-      </div>
-    </div>
-    <footer class="bg-light footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 text-center text-lg-start my-auto h-100">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item"><a href="#">About</a></li>
-              <li class="list-inline-item"><span>⋅</span></li>
-              <li class="list-inline-item"><a href="#">Contact</a></li>
-              <li class="list-inline-item"><span>⋅</span></li>
-              <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-              <li class="list-inline-item"><span>⋅</span></li>
-              <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">© KCP Budgeting 2021. All Rights Reserved.</p>
-          </div>
-          <div class="col-lg-6 text-center text-lg-end my-auto h-100">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+            <input class="form-control" id="email" placeholder="Email address" autofocus="">
+            <input class="form-control" id="password" placeholder="Password">
+            <button class="btn btn-primary btn-lg d-block btn-signin w-100" id="login" type="submit">Login</button><a class="forgot-password" href="#">Forgot your password?</a>
+    </div> -->
+
+    <style>
+        ul {
+          list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      height: 85px;
+  }
+  
+  li {
+    float: center;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .clean-block .block-heading {
+  
+    padding-top: 40px;
+  
+  }
+  img{
+    width:120px;
+    height:80px;
+  }
+  .clean-block.dark {
+      background-color: white;
+  }
+  #signUpDiv{
+    display: flex;
+    margin-top: 12px;
+  }
+  #signUpLink{
+    margin-left: 10px;
+  }
+      </style>
+  </head>
+  
+  <body>
+
+      <ul>
+    <li><a class="active" href="signup.html"></a>Signup</li>
+      </ul>
+      <br>
+  
+      <main class="page login-page">
+          <section class="clean-block clean-form dark" style="height: 100%;">
+              <div class="container">
+                  <div class="block-heading">
+                      <h2 class="text-info" style="font-size: 45px;">Log In</h2>
+                  </div>
+                  <div style="height: 400px;">
+                      <div class="form-group"><input class="form-control item" id="email" placeholder="Email"></div>
+                      <div class="form-group"><input type="password" class="form-control item" id="password" placeholder="Password"></div>
+                      <div class="form-group">
+                          <div class="form-check" id="form-check">
+                            <!-- <input class="form-check-input" type="checkbox" id="checkbox"> -->
+                            <label class="form-check-label" for="checkbox"><a href="reset.html">Forgot password?</a></label>
+                          </div>
+                      </div><button class="btn btn-primary btn-block" id="login" >Log In</button>
+                      <div id="signUpDiv">
+                        <!-- <p>Don't have an account?</p>
+                        <a href="signup.html" id="signUpLink"> <p>Sign Up</p></a> -->
+                        <h6 style="text-align:center;">By logging in you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></h6>
+                      </div>
+                    </div>
+              </div>
+          </section>
+      </main>
+
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
-    <script type="text/javascript" src="public/login.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+  <script type="text/javascript" src="public/login.js"></script>
+</body>
+
 </html>

@@ -10,7 +10,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        alert(user.uid)
       document.getElementById("navbar").innerHTML = `
       <div class="collapse navbar-collapse" id="navcol-1">
       <ul class="navbar-nav">

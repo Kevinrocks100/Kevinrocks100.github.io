@@ -50,59 +50,6 @@ var firebaseConfig = {
               <div class="container">
               <!-- Button to Open the Modal -->
               <!-- The Modal -->
-              <div class="modal" id="exactamt">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                  
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h4 class="modal-title">Savings Goal</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      <label> Goal Name:</label>
-                      <input type="text" class="form-control" id="goalNameOne">
-                      <label> Objective amount:</label>
-                      <input type="text" class="form-control" id="objAmt">
-                      <label> Amount to save:</label>
-                      <input type="text" class="form-control" id="amtOne">
-                      <br>
-                      <button type="button" class="btn btn-success" id="goalButton">Start saving!</button>
-                    </div>
-                    
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-              
-              <div class="modal" id="justsave">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Casually saving </h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-                      <div class="modal-body">
-                          <label> Goal Name:</label>
-                          <input type="text" class="form-control" id="goalNameTwo">
-                          <label> Amount to save:</label>
-                          <input type="text" class="form-control" id="amtTwo">
-                          <br>
-                          <button type="button" class="btn btn-success" id="casualButton">Start saving!</button>
-                        </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
       
                 <div class="modal" id="justsaveupdate">
                   <div class="modal-dialog">
@@ -113,42 +60,12 @@ var firebaseConfig = {
                       </div>
                       <div class="modal-body">
                           <label> Amount to save:</label>
-                          <input type="text" class="form-control" id="amtTwo">
+                          <input type="text" class="form-control" id="amtTwoUpdate">
                           <br>
-                          <div class="casualButtonUpdate" id="${postkeyOne}">
-                          <button type="button" class="btn btn-success" id="casualButtonUpdate">Update</button>
+
+                          <button type="button" class="btn btn-success goalButtonUpdate" id="${postkeyOne}">Update</button>
+
                       </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="modal" id="exactamtupdate">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                    
-                      <!-- Modal Header -->
-                      <div class="modal-header">
-                        <h4 class="modal-title">Savings Goal</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-                      
-                      <!-- Modal body -->
-                      <div class="modal-body">
-                        <label> Objective amount:</label>
-                        <input type="text" class="form-control" id="objAmt">
-                        <label> Amount to save:</label>
-                        <input type="text" class="form-control" id="amtOne">
-                        <br>
-                        <div class="goalButtonUpdate">
-                        <button type="button" class="btn btn-success" id="goalButtonUpdate">Update</button>
-                      </div>
-                      </div>
-                      
-                      <!-- Modal footer -->
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                       </div>
@@ -159,6 +76,7 @@ var firebaseConfig = {
       
             </div>
                 `
+                casualButtonUpdate(postkeyOne)
             })
         });
         firebase.database().ref("Savings/" + 'ExactAmount/' + `${user.uid}/`).on("value", function(lists){
@@ -170,8 +88,7 @@ var firebaseConfig = {
                     //return (amtTwo/100)*amtTwo;
                     return (amtOne/objAmt)*100
                 }
-                var width = percentage(amtOne,objAmt)+"%"
-                alert(width)
+                var width = percentage(amtOne,objAmt)+"%";
                 var postkeyTwo = data.key
                 document.getElementById("list_div").innerHTML += `
                 <div class="eachGoalExact" id="${postkeyTwo}" data-toggle="modal" data-target="#exactamtupdate">
@@ -190,82 +107,8 @@ var firebaseConfig = {
               <div class="container">
               <!-- Button to Open the Modal -->
               <!-- The Modal -->
-              <div class="modal" id="exactamt">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                  
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h4 class="modal-title">Savings Goal</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      <label> Goal Name:</label>
-                      <input type="text" class="form-control" id="goalNameOne">
-                      <label> Objective amount:</label>
-                      <input type="text" class="form-control" id="objAmt">
-                      <label> Amount to save:</label>
-                      <input type="text" class="form-control" id="amtOne">
-                      <br>
-                      <button type="button" class="btn btn-success" id="goalButton">Start saving!</button>
-                    </div>
-                    
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-              
-              <div class="modal" id="justsave">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Casually saving </h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-                      <div class="modal-body">
-                          <label> Goal Name:</label>
-                          <input type="text" class="form-control" id="goalNameTwo">
-                          <label> Amount to save:</label>
-                          <input type="text" class="form-control" id="amtTwo">
-                          <br>
-                          <button type="button" class="btn btn-success" id="casualButton">Start saving!</button>
-                        </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
+
       
-                <div class="modal" id="justsaveupdate">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Casually saving </h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-                      <div class="modal-body">
-                          <label> Amount to save:</label>
-                          <input type="text" class="form-control" id="amtTwo">
-                          <br>
-                          <div class="casualButtonUpdate" >
-                          <button type="button" class="btn btn-success" id="casualButtonUpdate">Update</button>
-                      </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
                 <div class="modal" id="exactamtupdate">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -279,13 +122,13 @@ var firebaseConfig = {
                       <!-- Modal body -->
                       <div class="modal-body">
                         <label> Objective amount:</label>
-                        <input type="text" class="form-control" id="objAmt">
+                        <input type="text" class="form-control" id="objAmtUpdate">
                         <label> Amount to save:</label>
-                        <input type="text" class="form-control" id="amtOne">
+                        <input type="text" class="form-control" id="amtOneUpdate">
                         <br>
-                        <div class="goalButtonUpdate" id="${postkeyTwo}">
-                        <button type="button" class="btn btn-success" id="goalButtonUpdate">Update</button>
-                      </div>
+
+                        <button type="button" class="goalButtonUpdate" id="${postkeyTwo}">Update</button>
+                     
                       </div>
                       
                       <!-- Modal footer -->
@@ -299,34 +142,42 @@ var firebaseConfig = {
       
             </div>
                 `
+                goalButtonUpdate(postkeyTwo)
             })
         });
 
-        [...document.getElementsByClassName("casualButtonUpdate")]
+        function casualButtonUpdate(postkeyOne){
+            [...document.getElementsByClassName("casualButtonUpdate")]
         .forEach(function (cardOne) {
           cardOne.addEventListener("click", goalClicked);
           function goalClicked() {
             casualButtonUpdate.addEventListener("click", function(){
                 // firebase.database().ref('Savings/' + 'JustSave/' +`${cardOne.id}/`).update({
-                //     amtTwo:amtTwo
+                //     amtTwo:document.getElementById("amtTwoUpdate").value
                 // })
-                console.log(cardOne.id)
+                console.log(postkeyOne)
             })
           }
         });
-[...document.getElementsByClassName("goalButtonUpdate")]
+        }
+        casualButtonUpdate()
+
+        function goalButtonUpdate(postkeyTwo){
+            [...document.getElementsByClassName("goalButtonUpdate")]
         .forEach(function (cardTwo) {
           cardTwo.addEventListener("click", gClicked);
           function gClicked() {
             goalButtonUpdate.addEventListener("click", function(){
-                console.log(cardTwo.id)
-                // firebase.database().ref('Savings/' + 'ExactAmount/' +`${cardTwo.id}/`).update({
-                //     objAmt:objAmt, 
-                //     amtOne:amtOne
-                // })
+                console.log(postkeyTwo)
+                firebase.database().ref('Savings/' + 'ExactAmount/' +`${cardTwo.id}/`).update({
+                    objAmt:document.getElementById("objAmtUpdate").value, 
+                    amtOne:document.getElementById("amtOneUpdate").value
+                })
             })
           }
         });
+        }
+        goalButtonUpdate()
 
         goalButton.addEventListener("click", function(){
             firebase.database().ref('Savings/' + 'ExactAmount/' +`${user.uid}/` + `${goalNameOne}`).set({
