@@ -2,13 +2,18 @@ body{
   background-color: black;
 }
 
-#HOME {
+#navbar {
+  margin: 0;
+  padding: 0;
+}
+
+header {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://studentloanhero.com/wp-content/uploads/simple-budgeting-methods-to-help-you-live-your-best-life-640x301.jpg?is-pending-load=1);
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
   padding: 0;
-  height: 555px; 
+  height: 555px;
 }
 
 h1 {
