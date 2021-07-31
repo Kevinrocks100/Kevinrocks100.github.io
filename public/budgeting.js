@@ -32,7 +32,6 @@ var firebaseConfig = {
         // </div>
         //     `
         // })
-
         firebase.database().ref('Budgets/' + 'OfficialBudget/' + `${user.uid}/`).on("value", snap => {
             var info = snap.val();
             var budget = parseFloat(info.budget);
@@ -152,6 +151,5 @@ var firebaseConfig = {
         //     })
         // })
     } else{
-        window.location = "index.html";
     }
     })
