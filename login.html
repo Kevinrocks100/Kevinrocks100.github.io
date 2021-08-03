@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>KCP Budgeting</title>
@@ -10,98 +9,45 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
-    <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
+    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-</head>
-
-<body>
-
-    <!-- <div class="login-card"><img class="profile-img-card" src="assets/img/avatar_2x.png">
+  </head>
+  <body>
+    <div class="login-card"><img class="profile-img-card" src="assets/img/avatar_2x.png">
         <p class="profile-name-card"> </p>
             <input class="form-control" id="email" placeholder="Email address" autofocus="">
             <input class="form-control" id="password" placeholder="Password">
             <button class="btn btn-primary btn-lg d-block btn-signin w-100" id="login" type="submit">Login</button><a class="forgot-password" href="#">Forgot your password?</a>
-    </div> -->
-
-    <style>
-        ul {
-          list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: white;
-      height: 85px;
-  }
-  
-  li {
-    float: center;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  .clean-block .block-heading {
-  
-    padding-top: 40px;
-  
-  }
-  img{
-    width:120px;
-    height:80px;
-  }
-  .clean-block.dark {
-      background-color: white;
-  }
-  #signUpDiv{
-    display: flex;
-    margin-top: 12px;
-  }
-  #signUpLink{
-    margin-left: 10px;
-  }
-      </style>
-  </head>
-  
-  <body>
-
-      <ul>
-    <li><a class="active" href="signup.html"></a>Signup</li>
-      </ul>
-      <br>
-  
-      <main class="page login-page">
-          <section class="clean-block clean-form dark" style="height: 100%;">
-              <div class="container">
-                  <div class="block-heading">
-                      <h2 class="text-info" style="font-size: 45px;">Log In</h2>
-                  </div>
-                  <div style="height: 400px;">
-                      <div class="form-group"><input class="form-control item" id="email" placeholder="Email"></div>
-                      <div class="form-group"><input type="password" class="form-control item" id="password" placeholder="Password"></div>
-                      <div class="form-group">
-                          <div class="form-check" id="form-check">
-                            <!-- <input class="form-check-input" type="checkbox" id="checkbox"> -->
-                            <label class="form-check-label" for="checkbox"><a href="reset.html">Forgot password?</a></label>
-                          </div>
-                      </div><button class="btn btn-primary btn-block" id="login" >Log In</button>
-                      <div id="signUpDiv">
-                        <!-- <p>Don't have an account?</p>
-                        <a href="signup.html" id="signUpLink"> <p>Sign Up</p></a> -->
-                        <h6 style="text-align:center;">By logging in you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></h6>
-                      </div>
-                    </div>
+    </div>
+    <main class="page login-page">
+      <section class="clean-block clean-form dark" style="height: 100%;">
+        <div class="container">
+          <div class="block-heading">
+            <h2 class="text-info" style="font-size: 45px;">Log In</h2>
+          </div>
+          <div style="height: 400px;">
+            <div class="form-group"><input class="form-control item" id="email" placeholder="Email"></div>
+            <div class="form-group"><input type="password" class="form-control item" id="password" placeholder="Password"></div>
+            <div class="form-group">
+              <div class="form-check" id="form-check">
+              <!-- <input class="form-check-input" type="checkbox" id="checkbox"> -->
+              <label class="form-check-label" for="checkbox"><a href="reset.html">Forgot password?</a></label>
               </div>
-          </section>
-      </main>
-
+            </div>
+            <button class="btn btn-primary btn-block" id="login" >Log In</button>
+            <div id="signUpDiv">
+              <!-- <p>Don't have an account?</p>
+              <a href="signup.html" id="signUpLink"> <p>Sign Up</p></a> -->
+              <h6 style="text-align:center;">By logging in you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></h6>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
-  <script type="text/javascript" src="public/login.js"></script>
-</body>
-
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script type="text/javascript" src="public/login.js"></script>
+  </body>
 </html>
