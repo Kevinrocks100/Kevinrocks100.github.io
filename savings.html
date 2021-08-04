@@ -9,36 +9,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
-    <link rel="stylesheet" href="savings.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="savings.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
   </head>
   <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-light navbar-expand-md sticky-top bg-white" id="navbar">
-      </nav>
+    <div id="HOME">
     </div>
-    <div class="container">
+    <div id="home">
+      <div class="container">
         <!-- Button to Open the Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exactamt">
-        I know how much I want to save
-        </button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#justsave">
-        I just want to save
-          </button>
+        <div id="A">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exactamt">I know how much I want to save</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#justsave">I just want to save</button>
+        </div>
         <!-- The Modal -->
         <div class="modal" id="exactamt">
           <div class="modal-dialog">
             <div class="modal-content">
-
               <!-- Modal Header -->
               <div class="modal-header">
                 <h4 class="modal-title">Savings Goal</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-
               <!-- Modal body -->
               <div class="modal-body">
                 <label> Goal Name:</label>
@@ -50,139 +46,118 @@
                 <br>
                 <button type="button" class="btn btn-success" id="goalButton">Start saving!</button>
               </div>
-
               <!-- Modal footer -->
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
               </div>
-
             </div>
           </div>
         </div>
-
         <div class="modal" id="justsave">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Casually saving </h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <label> Goal Name:</label>
-                    <input type="text" class="form-control" id="goalNameTwo">
-                    <label> Amount to save:</label>
-                    <input type="text" class="form-control" id="amtTwo">
-                    <br>
-                    <button type="button" class="btn btn-success" id="casualButton">Start saving!</button>
-                  </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Casually saving </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <label> Goal Name:</label>
+                <input type="text" class="form-control" id="goalNameTwo">
+                <label> Amount to save:</label>
+                <input type="text" class="form-control" id="amtTwo">
+                <br>
+                <button type="button" class="btn btn-success" id="casualButton">Start saving!</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
-
-          <div class="modal" id="justsaveupdate">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Casually saving </h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <label> Amount to save:</label>
-                    <input type="text" class="form-control" id="amtTwo">
-                    <br>
-                    <div class="casualButtonUpdate">
-                    <button type="button" class="btn btn-success" id="casualButtonUpdate">Update</button>
-                </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="modal" id="exactamtupdate">
-            <div class="modal-dialog">
-              <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">Savings Goal</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                  <label> Objective amount:</label>
-                  <input type="text" class="form-control" id="objAmt">
-                  <label> Amount to save:</label>
-                  <input type="text" class="form-control" id="amtOne">
-                  <br>
-                  <div class="goalButtonUpdate">
-                  <button type="button" class="btn btn-success" id="goalButtonUpdate">Update</button>
-                </div>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-      </div>
-
-    <!-- <div class="eachGoal">
-    <h3>Goal name</h3>
-    <div class="progress">
-        <progress class="progress is-success" value="60" max="100">60%</progress>
-    </div>
-    </div> -->
-
-    <div id="list_div">
-
-    </div>
-
-    <br>
-
-
-
-    <footer class="bg-light footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 text-center text-lg-start my-auto h-100">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Contact</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">© Brand 2021. All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-6 text-center text-lg-end my-auto h-100">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
-    </footer>
+        <div class="modal" id="justsaveupdate">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Casually saving </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <label> Amount to save:</label>
+                <input type="text" class="form-control" id="amtTwo">
+                <br>
+                <div class="casualButtonUpdate">
+                  <button type="button" class="btn btn-success" id="casualButtonUpdate">Update</button>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="exactamtupdate">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Savings Goal</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                <label> Objective amount:</label>
+                <input type="text" class="form-control" id="objAmt">
+                <label> Amount to save:</label>
+                <input type="text" class="form-control" id="amtOne">
+                <br>
+                <div class="goalButtonUpdate">
+                <button type="button" class="btn btn-success" id="goalButtonUpdate">Update</button>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="eachGoal">
+        <h3>Goal name</h3>
+        <div class="progress">
+          <progress class="progress is-success" value="60" max="100">60%</progress>
+        </div>
+      </div>
+      <footer class="bg-light footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+              <ul class="list-inline mb-2">
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><span>⋅</span></li>
+                <li class="list-inline-item"><a href="#">Contact</a></li>
+                <li class="list-inline-item"><span>⋅</span></li>
+                <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+                <li class="list-inline-item"><span>⋅</span></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+              </ul>
+              <p class="text-muted small mb-4 mb-lg-0">© Brand 2021. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
-    <script src="public/na.js"></script>
     <script src="public/savings.js"></script>
+    <script src="public/na.js"></script>
   </body>
 </html>

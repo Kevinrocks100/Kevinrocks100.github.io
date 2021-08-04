@@ -5,49 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>KCP Budgeting</title>
     <meta name="description" content="A simple and free way for college students to finance their finances.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
-    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="login.css">
   </head>
   <body>
-    <div class="login-card"><img class="profile-img-card" src="assets/img/avatar_2x.png">
-        <p class="profile-name-card"> </p>
-            <input class="form-control" id="email" placeholder="Email address" autofocus="">
-            <input class="form-control" id="password" placeholder="Password">
-            <button class="btn btn-primary btn-lg d-block btn-signin w-100" id="login" type="submit">Login</button><a class="forgot-password" href="#">Forgot your password?</a>
+    <div id="HOME">
     </div>
-    <main class="page login-page">
-      <section class="clean-block clean-form dark" style="height: 100%;">
-        <div class="container">
-          <div class="block-heading">
-            <h2 class="text-info" style="font-size: 45px;">Log In</h2>
-          </div>
-          <div style="height: 400px;">
-            <div class="form-group"><input class="form-control item" id="email" placeholder="Email"></div>
-            <div class="form-group"><input type="password" class="form-control item" id="password" placeholder="Password"></div>
-            <div class="form-group">
-              <div class="form-check" id="form-check">
-              <!-- <input class="form-check-input" type="checkbox" id="checkbox"> -->
-              <label class="form-check-label" for="checkbox"><a href="reset.html">Forgot password?</a></label>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-block" id="login" >Log In</button>
-            <div id="signUpDiv">
-              <!-- <p>Don't have an account?</p>
-              <a href="signup.html" id="signUpLink"> <p>Sign Up</p></a> -->
-              <h6 style="text-align:center;">By logging in you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></h6>
-            </div>
-          </div>
+    <div class="forms-out">
+      <div class="forms-in">
+        <div id="registration-page" class="hide">
+          <button id="show-login">Sign In</button>
+          <h3>Sign Up</h3>
+          Email <br />
+          <input type="email" id="registration-email" /><br />
+          Confirm Email <br />
+          <input  type="email" id="registration-reemail" autocomplete="disable"/>
+          <br />
+          Password <br />
+          <input type="password" id="registration-password" /><br />
+          <center><button id="register">Sign Up</button></center>
         </div>
-      </section>
-    </main>
+        <div id="login-page">
+          <button id="show-register">Sign Up</button>
+          <h3>Sign In</h3>
+          Email <br />
+          <input type="email" id="login-email" /><br />
+          Password <br />
+          <input type="password" id="login-password" /><br />
+          <p id="forgot-password">Forgot Password</p>
+          <center><button id="login">Sign In</button></center>
+        </div>
+        <div id="homepage" class="hide">
+          <button id="signout">Sign Out</button>
+          <h3>Logged In</h3>
+        </div>
+      </div>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
     <script type="text/javascript" src="public/login.js"></script>
+    <script src="public/na.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
