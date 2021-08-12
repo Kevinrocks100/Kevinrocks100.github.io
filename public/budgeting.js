@@ -8,10 +8,10 @@ var firebaseConfig = {
     appId: "1:97358543124:web:95cb0bd86c1459ce632a01"
   };
   firebase.initializeApp(firebaseConfig);
-//   var nameOne = document.getElementById("nameOne").value
-//   var priceOne = document.getElementById("priceOne").value
-//   var saveOne = document.getElementById("saveOne")
-//   var addExOne = document.getElementById("addExOne")
+  var nameOne = document.getElementById("nameOne").value
+  var priceOne = document.getElementById("priceOne").value
+  var saveOne = document.getElementById("saveOne")
+  var addExOne = document.getElementById("addExOne")
   var budgetText = document.getElementById("budgetText").value
   var budgetButton = document.getElementById("budgetButton")
   firebase.auth().onAuthStateChanged(function (user) {
