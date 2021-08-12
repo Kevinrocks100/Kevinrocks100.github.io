@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="budgeting.css">
+    <!-- Load the Firebase library before loading the body. -->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+
+    <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -17,263 +22,27 @@
   </head>
   <body>
     <div id="HOME"></div>
-    <h4 id="budgetRec" style="color:lightgreen"></h4>
-    <div id="home">
-      <br />
-      <h1>List of school items</h1>
-      <br />
-      <div id="row">
-        <div class="row">
-          <label>Maximum budget</label>
-          <div class="form-group col-sm-3 class">
-            <div class="input-group"><span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="budgetText" placeholder="Budget total" aria-describedby="basic-addon1">
+    <form id="recommendationForm">
+      <div id="home">
+        <br />
+        <h1>List of school items</h1>
+        <br />
+        <div id="row">
+          <div class="row">
+            <label>Maximum budget</label>
+            <div class="form-group col-sm-3 class">
+              <div class="input-group"><span class="input-group-addon"></span>
+                <input type="text" class="form-control" id="budgetText" placeholder="Budget total" aria-describedby="basic-addon1">
+              </div>
             </div>
           </div>
         </div>
+        <br />
+        <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
+        <br />
+        <button type="submit" class="btn btn-outline-primary" id="budgetButton">Save budget</button>
       </div>
-      <br />
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <br />
-      <br />
-      <div id="row">
-        <div class="row">
-          <label>Total tuition payment</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="toIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="toPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Housing(if applicable)</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="hoIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="hoPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Supplies</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="suIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="suPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Groceries</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="grIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="grPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Meal Plan</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="mpIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="mpPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Transportation/parking</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="tpIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="tpPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Laundry</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="laIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="laPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Visits Home</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="vhIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="vhPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Dorm Items</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="diIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="diPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Extracurriculars</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="ecIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="ecPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Entertainment</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="enIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="enPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Additional class and fees</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-      <div id="row">
-        <div class="row">
-          <label>Others</label>
-          <div class="form-group col-sm-3 CLass">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="otIOne" placeholder="Item" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-          <div class="form-group col-sm-3 Class">
-            <div class="input-group"> <span class="input-group-addon"></span>
-              <input type="text" class="form-control" id="otPOne" placeholder="Price" aria-describedby="basic-addon1" style="width:100px;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
-      <br />
-      <button class="btn btn-outline-primary" id="budgetButton">Save budget</button>
-    </div>
+    </form>
     <footer class="bg-light footer">
         <div class="container">
           <div class="row">
