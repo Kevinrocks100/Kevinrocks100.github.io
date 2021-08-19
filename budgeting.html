@@ -6,72 +6,123 @@
     <title>Home - Brand</title>
     <meta name="description" content="A simple and free way for college students to finance their finances.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="budgeting.css">
-    <!-- Load the Firebase library before loading the body. -->
-    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
-
-    <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div id="HOME"></div>
-    <form id="recommendationForm">
+    <form id="Form">
       <div id="home">
         <br />
-        <h1>List of school items</h1>
+        <h1>College Budgeting Form</h1>
         <br />
-        <div id="row">
-          <div class="row">
-            <label>Maximum budget</label>
-            <div class="form-group col-sm-3 class">
-              <div class="input-group"><span class="input-group-addon"></span>
-                <input type="text" class="form-control" id="budgetText" placeholder="Budget total" aria-describedby="basic-addon1">
-              </div>
-            </div>
+        <div class="row">
+          <label>Maximum Budget Per Year</label>
+          <div class="input-group class">
+            <input type="text" class="form-control" id="budgetamount" placeholder="Budget Total">
           </div>
         </div>
         <br />
-        <button class="btn btn-outline-primary">Add expense<i class="bi bi-plus-square"></i></button>
+        <div class="row">
+          <label>Total Tuition Payment</label>
+          <div class="input-group CLass">
+            <input type="text" class="form-control" id="tuition" placeholder="Item">
+          </div>
+          <div class="input-group Class">
+            <input type="text" class="form-control" id="tuitionamount" placeholder="Price">
+          </div>
+        </div>
+        <div class="row">
+          <label>Room and Board</label>
+          <div class="input-group CLass">
+            <input type="text" class="form-control" id="roomandboard" placeholder="Item">
+          </div>
+          <div class="input-group Class">
+            <input type="text" class="form-control" id="roomandboardamount" placeholder="Price">
+          </div>
+        </div>
+        <div class="row">
+          <label>Books and Supplies</label>
+          <div class="input-group CLass">
+            <input type="text" class="form-control" id="booksandsupplies" placeholder="Item">
+          </div>
+          <div class="input-group Class">
+            <input type="text" class="form-control" id="booksandsuppliesamount" placeholder="Price">
+          </div>
+        </div>
+        <div class="row">
+          <label>Groceries</label>
+          <div class="input-group CLass">
+            <input type="text" class="form-control" id="groceries" placeholder="Item">
+          </div>
+          <div class="input-group Class">
+            <input type="text" class="form-control" id="groceriesamount" placeholder="Price">
+          </div>
+        </div>
+        <div class="row">
+          <label>Meal Plan</label>
+          <div class="input-group CLass">
+            <input type="text" class="form-control" id="mealplan" placeholder="Item">
+          </div>
+          <div class="input-group Class">
+            <input type="text" class="form-control" id="mealplanamount" placeholder="Price">
+          </div>
+        </div>
+        <div class="row">
+          <label>Transportation</label>
+          <div class="input-group CLass">
+            <input type="text" class="form-control" id="transportation" placeholder="Item">
+          </div>
+          <div class="input-group Class">
+            <input type="text" class="form-control" id="transportationamount" placeholder="Price">
+          </div>
+        </div>
+        <div class="row">
+          <label>Additional fees</label>
+          <div class="input-group CLass">
+            <input type="text" class="form-control" id="additionalfees" placeholder="Item">
+          </div>
+          <div class="input-group Class">
+            <input type="text" class="form-control" id="additionalfeesamount" placeholder="Price">
+          </div>
+        </div>
         <br />
-        <button type="submit" class="btn btn-outline-primary" id="budgetButton">Save budget</button>
+        <button type="submit" class="btn btn-outline-primary" id="savebudget">Save budget</button>
+        <br /><br />
       </div>
     </form>
     <footer class="bg-light footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 text-center text-lg-start my-auto h-100">
-              <ul class="list-inline mb-2">
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><span>⋅</span></li>
-                <li class="list-inline-item"><a href="#">Contact</a></li>
-                <li class="list-inline-item"><span>⋅</span></li>
-                <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-                <li class="list-inline-item"><span>⋅</span></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-              </ul>
-              <p class="text-muted small mb-4 mb-lg-0">© Brand 2021. All Rights Reserved.</p>
-            </div>
-            <div class="col-lg-6 text-center text-lg-end my-auto h-100">
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
-              </ul>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><a href="#">About</a></li>
+              <li class="list-inline-item"><span>⋅</span></li>
+              <li class="list-inline-item"><a href="#">Contact</a></li>
+              <li class="list-inline-item"><span>⋅</span></li>
+              <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+              <li class="list-inline-item"><span>⋅</span></li>
+              <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="text-muted small mb-4 mb-lg-0">© Brand 2021. All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+            </ul>
           </div>
         </div>
-      </footer>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+      </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="public/budgeting.js"></script>
-    <script src="public/na.js"></script>
   </body>
 </html>

@@ -1,11 +1,11 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyAE9G_OkAFpyEqDRh4L3PpOgg9N1fl_X6g",
-    authDomain: "kpcbudgeting.firebaseapp.com",
-    databaseURL: "https://kpcbudgeting-default-rtdb.firebaseio.com",
-    projectId: "kpcbudgeting",
-    storageBucket: "kpcbudgeting.appspot.com",
-    messagingSenderId: "97358543124",
-    appId: "1:97358543124:web:95cb0bd86c1459ce632a01"
+  apiKey: "AIzaSyBEXrgqXEA54Jvv1l04Px8bTodK1KAEdAc",
+  authDomain: "fir-f80af.firebaseapp.com",
+  databaseURL: "https://fir-f80af-default-rtdb.firebaseio.com",
+  projectId: "fir-f80af",
+  storageBucket: "fir-f80af.appspot.com",
+  messagingSenderId: "371053966260",
+  appId: "1:371053966260:web:81a6970d6b486bef2138e1"
   };
 firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged(function(user) {

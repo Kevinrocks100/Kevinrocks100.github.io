@@ -1,11 +1,13 @@
 var firebaseConfig = {
-apiKey: "AIzaSyAE9G_OkAFpyEqDRh4L3PpOgg9N1fl_X6g",
-authDomain: "kpcbudgeting.firebaseapp.com",
-projectId: "kpcbudgeting",
-storageBucket: "kpcbudgeting.appspot.com",
-messagingSenderId: "97358543124",
-appId: "1:97358543124:web:95cb0bd86c1459ce632a01"
-};
+apiKey: "AIzaSyBEXrgqXEA54Jvv1l04Px8bTodK1KAEdAc",
+authDomain: "fir-f80af.firebaseapp.com",
+databaseURL: "https://fir-f80af-default-rtdb.firebaseio.com",
+projectId: "fir-f80af",
+storageBucket: "fir-f80af.appspot.com",
+messagingSenderId: "371053966260",
+appId: "1:371053966260:web:81a6970d6b486bef2138e1"
+  };
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -24,6 +26,17 @@ firebase.auth().onAuthStateChanged(function(user) {
         </div>
       </nav>
       `
+      const budgetText = document.getElementById('budgetText');
+      const budgetButton = document.getElementById('budgetButton');
+      const database = firebase.database();
+      const usersRef = database.ref('/users');
+      budgetButton.addEventListener('click', e => {
+        e.preventDefault();
+        const autoId = usersRef.push().key
+        usersRef.child(autoId).set({
+          budget: budgetText.value,
+        });
+      });
     } else {
         document.getElementById("HOME").innerHTML = `
         <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
@@ -44,10 +57,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 })
 
 function logout(){
-    firebase.auth().signOut().then(function() {
-  alert('Logged out');
-}).catch(function(error) {
+  firebase.auth().signOut().then(function() {
+    alert('Logged out');
+  }).catch(function(error) {
   // An error happened.
-  console.log(error);
-});
+    console.log(error);
+  });
 }

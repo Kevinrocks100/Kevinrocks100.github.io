@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="savings.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
   </head>
   <body>
     <div id="HOME">
@@ -36,16 +34,18 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <!-- Modal body -->
-              <div class="modal-body">
-                <label> Goal Name:</label>
-                <input type="text" class="form-control" id="goalNameOne">
-                <label> Objective amount:</label>
-                <input type="text" class="form-control" id="objAmt">
-                <label> Amount to save:</label>
-                <input type="text" class="form-control" id="amtOne">
-                <br>
-                <button type="button" class="btn btn-success" id="goalButton">Start saving!</button>
-              </div>
+              <form id="B">
+                <div class="modal-body">
+                  <label> Goal Name:</label>
+                  <input type="text" class="form-control" id="goalNameOne">
+                  <label> Objective amount:</label>
+                  <input type="text" class="form-control" id="objAmt">
+                  <label> Amount to save:</label>
+                  <input type="text" class="form-control" id="amtOne">
+                  <br>
+                  <button type="button" class="btn btn-success" id="goalButton">Start saving!</button>
+                </div>
+              </form>
               <!-- Modal footer -->
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -121,12 +121,7 @@
           </div>
         </div>
       </div>
-      <div class="eachGoal">
-        <h3>Goal name</h3>
-        <div class="progress">
-          <progress class="progress is-success" value="60" max="100">60%</progress>
-        </div>
-      </div>
+      <div id="list_div"></div>
       <footer class="bg-light footer">
         <div class="container">
           <div class="row">
@@ -157,7 +152,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
-    <script src="public/savings.js"></script>
     <script src="public/na.js"></script>
+    <script src="public/savings.js"></script>
   </body>
 </html>

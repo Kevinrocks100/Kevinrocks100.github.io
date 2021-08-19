@@ -1,161 +1,206 @@
 var firebaseConfig = {
-apiKey: "AIzaSyAE9G_OkAFpyEqDRh4L3PpOgg9N1fl_X6g",
-authDomain: "kpcbudgeting.firebaseapp.com",
-projectId: "kpcbudgeting",
-storageBucket: "kpcbudgeting.appspot.com",
-messagingSenderId: "97358543124",
-appId: "1:97358543124:web:95cb0bd86c1459ce632a01"
+  apiKey: "AIzaSyBEXrgqXEA54Jvv1l04Px8bTodK1KAEdAc",
+  authDomain: "fir-f80af.firebaseapp.com",
+  databaseURL: "https://fir-f80af-default-rtdb.firebaseio.com",
+  projectId: "fir-f80af",
+  storageBucket: "fir-f80af.appspot.com",
+  messagingSenderId: "371053966260",
+  appId: "1:371053966260:web:81a6970d6b486bef2138e1"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-document.querySelector("#show-register").addEventListener("click", () => {
-showRegistration();
-});
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    document.getElementById("HOME").innerHTML = `
+      <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
+        <div class="container-fluid" id="container-fluid"><a class="navbar-brand text-white" href="index.html">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active text-white" href="budgeting.html">Budgeting</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="savings.html">Savings</a></li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link active" onclick="logout()" ><button class="btn btn-primary" type="button">Logout</button></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      `
+  }
+  else {
+    document.getElementById("HOME").innerHTML = `
+      <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
+        <div class="container-fluid" id="container-fluid"><a class="navbar-brand text-white" href="index.html">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active text-white" href="budgeting.html">Budgeting</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="savings.html">Savings</a></li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link active" href="login.html"><button class="btn btn-outline-primary" type="button">Log In</button></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    `
+    const auth = firebase.auth();
+    document.querySelector("#show-register").addEventListener("click", () => {
+    showRegistration();
+    });
 
-const showRegistration = () => {
-document.querySelector("#registration-page").classList.remove("hide");
-document.querySelector("#login-page").classList.add("hide");
-document.querySelector("#homepage").classList.add("hide");
-};
+    const showRegistration = () => {
+    document.querySelector("#registration-page").classList.remove("hide");
+    document.querySelector("#login-page").classList.add("hide");
+    document.querySelector("#homepage").classList.add("hide");
+    };
 
-document.querySelector("#show-login").addEventListener("click", () => {
-showLogin();
-});
+    document.querySelector("#show-login").addEventListener("click", () => {
+    showLogin();
+    });
 
-const showLogin = () => {
-document.querySelector("#registration-page").classList.add("hide");
-document.querySelector("#login-page").classList.remove("hide");
-document.querySelector("#homepage").classList.add("hide");
-};
+    const showLogin = () => {
+    document.querySelector("#registration-page").classList.add("hide");
+    document.querySelector("#login-page").classList.remove("hide");
+    document.querySelector("#homepage").classList.add("hide");
+    };
 
-document.querySelector("#signout").addEventListener("click", () => {
-signOut();
-});
+    document.querySelector("#signout").addEventListener("click", () => {
+    signOut();
+    });
 
-const register = () => {
-const email = document.querySelector("#registration-email").value;
-const reemail = document.querySelector("#registration-reemail").value;
-const password = document.querySelector("#registration-password").value;
+    const register = () => {
+    const email = document.querySelector("#registration-email").value;
+    const reemail = document.querySelector("#registration-reemail").value;
+    const password = document.querySelector("#registration-password").value;
 
-if (email.trim() == "") {
-  alert("Enter Email");
-} else if (password.trim().length < 7) {
-  alert("Password must be at least 7 characters");
-} else if (email != reemail) {
-  alert("emails do not match");
-} else {
-  auth
-  .createUserWithEmailAndPassword(email, password)
-  .catch(function (error) {
+    if (email.trim() == "") {
+      alert("Enter Email");
+    } else if (password.trim().length < 7) {
+      alert("Password must be at least 7 characters");
+    } else if (email != reemail) {
+      alert("emails do not match");
+    } else {
+      auth
+      .createUserWithEmailAndPassword(email, password)
+      .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          alert(errorMessage);
+          // ...
+      });
+    }
+    };
+
+    document.querySelector("#register").addEventListener("click", () => {
+    register();
+    });
+
+    //register when you hit the enter key
+    document
+    .querySelector("#registration-password")
+    .addEventListener("keyup", (e) => {
+      if (event.keyCode === 13) {
+      e.preventDefault();
+
+      register();
+      }
+    });
+
+    const login = () => {
+    const email = document.querySelector("#login-email").value;
+    const password = document.querySelector("#login-password").value;
+
+    if (email.trim() == "") {
+      alert("Enter Email");
+    } else if (password.trim() == "") {
+      alert("Enter Password");
+    } else {
+      authenticate(email, password);
+    }
+    };
+
+    document.querySelector("#login").addEventListener("click", () => {
+    login();
+    });
+
+    //sign in when you hit enter
+    document
+    .querySelector("#login-password")
+    .addEventListener("keyup", (e) => {
+      if (event.keyCode === 13) {
+      e.preventDefault();
+
+      login();
+      }
+    });
+
+    const authenticate = (email, password) => {
+    const auth = firebase.auth();
+    auth.signInWithEmailAndPassword(email, password);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
       alert(errorMessage);
-      // ...
-  });
-}
-};
+      });
+    };
 
-document.querySelector("#register").addEventListener("click", () => {
-register();
-});
+    const showHomepage = () => {
+    document.querySelector("#registration-page").classList.add("hide");
+    document.querySelector("#login-page").classList.add("hide");
+    document.querySelector("#homepage").classList.remove("hide");
+    };
 
-//register when you hit the enter key
-document
-.querySelector("#registration-password")
-.addEventListener("keyup", (e) => {
-  if (event.keyCode === 13) {
-  e.preventDefault();
+    const signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+      location.reload();
+      })
+      .catch(function (error) {
+      alert("error signing out, check network connection");
+      });
+    };
 
-  register();
+    auth.onAuthStateChanged((firebaseUser) => {
+    if (firebaseUser) {
+      showHomepage();
+    }
+    });
+
+    document
+    .querySelector("#forgot-password")
+    .addEventListener("click", () => {
+      const email = document.querySelector("#login-email").value;
+      if (email.trim() == "") {
+      alert("Enter Email");
+      } else {
+      forgotPassword(email);
+      }
+    });
+
+    const forgotPassword = (email) => {
+    auth
+      .sendPasswordResetEmail(email)
+      .then(function () {
+      alert("email sent");
+      })
+      .catch(function (error) {
+      alert("invalid email or bad network connection");
+      });
+    };
   }
 });
-
-const login = () => {
-const email = document.querySelector("#login-email").value;
-const password = document.querySelector("#login-password").value;
-
-if (email.trim() == "") {
-  alert("Enter Email");
-} else if (password.trim() == "") {
-  alert("Enter Password");
-} else {
-  authenticate(email, password);
+function logout(){
+  firebase.auth().signOut().then(function() {
+    alert('Logged out');
+  }).catch(function(error) {
+  // An error happened.
+    console.log(error);
+  });
 }
-};
-
-document.querySelector("#login").addEventListener("click", () => {
-login();
-});
-
-//sign in when you hit enter
-document
-.querySelector("#login-password")
-.addEventListener("keyup", (e) => {
-  if (event.keyCode === 13) {
-  e.preventDefault();
-
-  login();
-  }
-});
-
-const authenticate = (email, password) => {
-const auth = firebase.auth();
-auth.signInWithEmailAndPassword(email, password);
-firebase
-  .auth()
-  .signInWithEmailAndPassword(email, password)
-  .catch(function (error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  alert(errorMessage);
-  });
-};
-
-const showHomepage = () => {
-document.querySelector("#registration-page").classList.add("hide");
-document.querySelector("#login-page").classList.add("hide");
-document.querySelector("#homepage").classList.remove("hide");
-};
-
-const signOut = () => {
-firebase
-  .auth()
-  .signOut()
-  .then(function () {
-  location.reload();
-  })
-  .catch(function (error) {
-  alert("error signing out, check network connection");
-  });
-};
-
-auth.onAuthStateChanged((firebaseUser) => {
-if (firebaseUser) {
-  showHomepage();
-}
-});
-
-document
-.querySelector("#forgot-password")
-.addEventListener("click", () => {
-  const email = document.querySelector("#login-email").value;
-  if (email.trim() == "") {
-  alert("Enter Email");
-  } else {
-  forgotPassword(email);
-  }
-});
-
-const forgotPassword = (email) => {
-auth
-  .sendPasswordResetEmail(email)
-  .then(function () {
-  alert("email sent");
-  })
-  .catch(function (error) {
-  alert("invalid email or bad network connection");
-  });
-};
