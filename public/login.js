@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           </div>
         </div>
       </nav>
-      `
+    `
   }
   else {
     document.getElementById("HOME").innerHTML = `
@@ -45,55 +45,55 @@ firebase.auth().onAuthStateChanged(function(user) {
     `
     const auth = firebase.auth();
     document.querySelector("#show-register").addEventListener("click", () => {
-    showRegistration();
+      showRegistration();
     });
 
     const showRegistration = () => {
-    document.querySelector("#registration-page").classList.remove("hide");
-    document.querySelector("#login-page").classList.add("hide");
-    document.querySelector("#homepage").classList.add("hide");
+      document.querySelector("#registration-page").classList.remove("hide");
+      document.querySelector("#login-page").classList.add("hide");
+      document.querySelector("#homepage").classList.add("hide");
     };
 
     document.querySelector("#show-login").addEventListener("click", () => {
-    showLogin();
+      showLogin();
     });
 
     const showLogin = () => {
-    document.querySelector("#registration-page").classList.add("hide");
-    document.querySelector("#login-page").classList.remove("hide");
-    document.querySelector("#homepage").classList.add("hide");
+      document.querySelector("#registration-page").classList.add("hide");
+      document.querySelector("#login-page").classList.remove("hide");
+      document.querySelector("#homepage").classList.add("hide");
     };
 
     document.querySelector("#signout").addEventListener("click", () => {
-    signOut();
+      signOut();
     });
 
     const register = () => {
-    const email = document.querySelector("#registration-email").value;
-    const reemail = document.querySelector("#registration-reemail").value;
-    const password = document.querySelector("#registration-password").value;
+      const email = document.querySelector("#registration-email").value;
+      const reemail = document.querySelector("#registration-reemail").value;
+      const password = document.querySelector("#registration-password").value;
 
-    if (email.trim() == "") {
-      alert("Enter Email");
-    } else if (password.trim().length < 7) {
-      alert("Password must be at least 7 characters");
-    } else if (email != reemail) {
-      alert("emails do not match");
-    } else {
-      auth
-      .createUserWithEmailAndPassword(email, password)
-      .catch(function (error) {
+      if (email.trim() == "") {
+        alert("Enter Email");
+      } else if (password.trim().length < 7) {
+        alert("Password must be at least 7 characters");
+      } else if (email != reemail) {
+        alert("emails do not match");
+      } else {
+        auth
+        .createUserWithEmailAndPassword(email, password)
+        .catch(function (error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
           alert(errorMessage);
           // ...
-      });
-    }
+        });
+      }
     };
 
     document.querySelector("#register").addEventListener("click", () => {
-    register();
+      register();
     });
 
     //register when you hit the enter key
@@ -101,27 +101,26 @@ firebase.auth().onAuthStateChanged(function(user) {
     .querySelector("#registration-password")
     .addEventListener("keyup", (e) => {
       if (event.keyCode === 13) {
-      e.preventDefault();
-
-      register();
+        e.preventDefault();
+        register();
       }
     });
 
     const login = () => {
-    const email = document.querySelector("#login-email").value;
-    const password = document.querySelector("#login-password").value;
+      const email = document.querySelector("#login-email").value;
+      const password = document.querySelector("#login-password").value;
 
-    if (email.trim() == "") {
-      alert("Enter Email");
-    } else if (password.trim() == "") {
-      alert("Enter Password");
-    } else {
-      authenticate(email, password);
-    }
+      if (email.trim() == "") {
+        alert("Enter Email");
+      } else if (password.trim() == "") {
+        alert("Enter Password");
+      } else {
+        authenticate(email, password);
+      }
     };
 
     document.querySelector("#login").addEventListener("click", () => {
-    login();
+      login();
     });
 
     //sign in when you hit enter
@@ -129,48 +128,47 @@ firebase.auth().onAuthStateChanged(function(user) {
     .querySelector("#login-password")
     .addEventListener("keyup", (e) => {
       if (event.keyCode === 13) {
-      e.preventDefault();
-
-      login();
+        e.preventDefault();
+        login();
       }
     });
 
     const authenticate = (email, password) => {
-    const auth = firebase.auth();
-    auth.signInWithEmailAndPassword(email, password);
-    firebase
+      const auth = firebase.auth();
+      auth.signInWithEmailAndPassword(email, password);
+      firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorMessage);
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
       });
     };
 
     const showHomepage = () => {
-    document.querySelector("#registration-page").classList.add("hide");
-    document.querySelector("#login-page").classList.add("hide");
-    document.querySelector("#homepage").classList.remove("hide");
+      document.querySelector("#registration-page").classList.add("hide");
+      document.querySelector("#login-page").classList.add("hide");
+      document.querySelector("#homepage").classList.remove("hide");
     };
 
     const signOut = () => {
-    firebase
+      firebase
       .auth()
       .signOut()
       .then(function () {
-      location.reload();
+        location.reload();
       })
       .catch(function (error) {
-      alert("error signing out, check network connection");
+        alert("error signing out, check network connection");
       });
     };
 
     auth.onAuthStateChanged((firebaseUser) => {
-    if (firebaseUser) {
-      showHomepage();
-    }
+      if (firebaseUser) {
+        showHomepage();
+      }
     });
 
     document
@@ -178,24 +176,25 @@ firebase.auth().onAuthStateChanged(function(user) {
     .addEventListener("click", () => {
       const email = document.querySelector("#login-email").value;
       if (email.trim() == "") {
-      alert("Enter Email");
+        alert("Enter Email");
       } else {
-      forgotPassword(email);
+        forgotPassword(email);
       }
     });
 
     const forgotPassword = (email) => {
-    auth
+      auth
       .sendPasswordResetEmail(email)
       .then(function () {
-      alert("email sent");
+        alert("email sent");
       })
       .catch(function (error) {
-      alert("invalid email or bad network connection");
+        alert("invalid email or bad network connection");
       });
     };
   }
 });
+
 function logout(){
   firebase.auth().signOut().then(function() {
     alert('Logged out');

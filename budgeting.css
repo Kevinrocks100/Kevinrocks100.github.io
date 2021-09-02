@@ -7,7 +7,7 @@ body{
   padding: 0;
 }
 
-#home {
+.home {
   background-color: white;
   position: relative;
   width: 50%;
@@ -21,13 +21,16 @@ body{
   margin-left: 25%;
 }
 
-.CLass {
+#seeresult {
+  visibility: hidden;
   position: relative;
-  width: 25%;
-  margin-left: 25%;
+  left: 276px;
 }
 
-.Class {
-  position: relative;
-  width: 25%;
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+input {
+  text-align: center;
 }

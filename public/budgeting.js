@@ -29,56 +29,88 @@ firebase.auth().onAuthStateChanged(function(user) {
       const user = firebase.auth().currentUser;
       if (user) {
         var uid = user.uid;
-        const budgetamount = document.getElementById('budgetamount');
+        var budget = document.getElementById('budget');
         var tuition = document.getElementById('tuition');
-        var tuitionamount = document.getElementById('tuitionamount');
         var roomandboard = document.getElementById('roomandboard');
-        var roomandboardamount = document.getElementById('roomandboardamount');
         var booksandsupplies = document.getElementById('booksandsupplies');
-        var booksandsuppliesamount = document.getElementById('booksandsuppliesamount');
-        var groceries = document.getElementById('groceries');
-        var groceriesamount = document.getElementById('groceriesamount');
-        var mealplan = document.getElementById('mealplan');
-        var mealplanamount = document.getElementById('mealplanamount');
-        var transportation = document.getElementById('transportation');
-        var transportationamount = document.getElementById('transportationamount');
         var additionalfees = document.getElementById('additionalfees');
-        var additionalfeesamount = document.getElementById('additionalfeesamount');
-        const savebudget = document.getElementById('savebudget');
-        const database = firebase.database();
-        const usersRef = database.ref('/Users');
+        var personalexpenses = document.getElementById('personalexpenses');
+        var savebudget = document.getElementById('savebudget');
+        var totalexpenses = document.getElementById('totalexpenses');
+        var database = firebase.database();
+        var usersRef = database.ref('/Users');
         savebudget.addEventListener('click', e => {
           e.preventDefault();
           usersRef.child(uid).set({
-            Budget: budgetamount.value,
-            Tuitionamount: tuition.value + ": " + tuitionamount.value,
-            RoomandBoard: roomandboard.value +": " + roomandboardamount.value,
-            Booksandsupplies: booksandsupplies.value + ": " + booksandsuppliesamount.value,
-            Groceries: groceries.value + ": " + groceriesamount.value,
-            Mealplan: mealplan.value + ": " + mealplanamount.value,
-            Transportation: transportation.value + ": " + transportationamount.value,
-            Additionalfees: additionalfees.value + ": " + additionalfeesamount.value,
+            Budget: budget.value,
+            Tuition: tuition.value,
+            RoomandBoard: roomandboard.value,
+            Booksandsupplies: booksandsupplies.value,
+            Additionalfees: additionalfees.value,
+            Personalexpenses: personalexpenses.value,
+            Totalexpenses: totalexpenses.value,
           });
-          document.getElementById('Form').reset();
+        //  document.getElementById('Form').reset();
         });
+        const seeresult = document.getElementById('seeresult');
+        savebudget.onclick = function() {
+          seeresult.style.visibility = "visible";
+        }
+        seeresult.onclick = function() {
+          var userDataRef = usersRef.child(uid);
+          userDataRef.once("value").then(function(snapshot){
+            var budget = snapshot.val().Budget;
+            var tuition = snapshot.val().Tuition;
+            var roomandboard = snapshot.val().RoomandBoard;
+            var booksandsupplies = snapshot.val().Booksandsupplies;
+            var additionalfees = snapshot.val().Additionalfees;
+            var personalexpenses = snapshot.val().Personalexpenses;
+            var totalexpenses = snapshot.val().Totalexpenses;
+            document.getElementById("budget").innerHTML = budget;
+            document.getElementById("tuition").innerHTML = tuition;
+            document.getElementById("roomandboard").innerHTML = roomandboard;
+            document.getElementById("booksandsupplies").innerHTML = booksandsupplies;
+            document.getElementById("additionalfees").innerHTML = additionalfees;
+            document.getElementById("personalexpenses").innerHTML = personalexpenses;
+            document.getElementById("totalexpenses").innerHTML = totalexpenses;
+          });
+          document.getElementById('content').innerHTML = `
+            <div class="home">
+              <br /><br/ ><br/ >
+              <h1 style="margin: 0; padding: 0;">College Budgeting Form Results</h1>
+              <br /><br/ >
+              <p>Your maximum budget is $<span id="budget"></span>.</p>
+              <p>Your college tuition is $<span id="tuition"></span>.</p>
+              <p>Your room and board is $<span id="roomandboard"></span>.</p>
+              <p>Your books and supplies is $<span id="booksandsupplies"></span>.</p>
+              <p>Your additional fees is $<span id="additionalfees"></span>.</p>
+              <p>Your personal expenses is $<span id="personalexpenses"></span>.</p>
+              <p>Your total expenses is $<span id="totalexpenses"></span>.</p>
+              <p style="margin: 0; padding: 0;" id="budgetexceeded"></p>
+              <br/ >
+              <button type="submit" class="btn btn-outline-primary" id="back"><a href="budgeting.html">Back</a></button>
+              <br/ ><br/ >
+            </div>
+          `
+        }
       }
     } else {
         document.getElementById("HOME").innerHTML = `
-        <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
-          <div class="container-fluid" id="container-fluid"><a class="navbar-brand text-white" href="index.html">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active text-white" href="budgeting.html">Budgeting</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="savings.html">Savings</a></li>
-              </ul>
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="login.html"><button class="btn btn-outline-primary" type="button">Log In</button></a></li>
-              </ul>
+          <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
+            <div class="container-fluid" id="container-fluid"><a class="navbar-brand text-white" href="index.html">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link active text-white" href="budgeting.html">Budgeting</a></li>
+                  <li class="nav-item"><a class="nav-link text-white" href="savings.html">Savings</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="nav-link active" href="login.html"><button class="btn btn-outline-primary" type="button">Log In</button></a></li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
         `
-    }
+      }
 })
 
 function logout(){
@@ -88,4 +120,13 @@ function logout(){
   // An error happened.
     console.log(error);
   });
+}
+
+function calculatetotalexpenses() {
+  var tuition = parseInt(document.getElementById("tuition").value);
+  var roomandboard = parseInt(document.getElementById("roomandboard").value);
+  var booksandsupplies = parseInt(document.getElementById("booksandsupplies").value);
+  var additionalfees = parseInt(document.getElementById("additionalfees").value);
+  var personalexpenses = parseInt(document.getElementById("personalexpenses").value);
+  document.getElementById("totalexpenses").value = tuition + roomandboard + booksandsupplies + additionalfees + personalexpenses;
 }
