@@ -28,11 +28,11 @@
           <form id="B">
             <div class="modal-body">
               <label> Goal Name:</label>
-              <input type="text" class="form-control" id="goalNameOne">
+              <input type="text" class="form-control" id="goal">
               <label> Objective amount:</label>
               <input type="text" class="form-control" id="objAmt">
               <label> Amount to save:</label>
-              <input type="text" class="form-control" id="amtOne">
+              <input type="text" class="form-control" id="amtSave">
               <br>
               <button type="button" class="btn btn-success" id="goalButton">Start saving!</button>
             </div>
@@ -44,74 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="modal" id="justsave">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Casually saving </h4>
-            <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <label> Goal Name:</label>
-            <input type="text" class="form-control" id="goalNameTwo">
-            <label> Amount to save:</label>
-            <input type="text" class="form-control" id="amtTwo">
-            <br>
-            <button type="button" class="btn btn-success" id="casualButton">Start saving!</button>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal" id="justsaveupdate">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Casually saving </h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <label> Amount to save:</label>
-            <input type="text" class="form-control" id="amtTwo">
-            <br>
-            <div class="casualButtonUpdate">
-              <button type="button" class="btn btn-success" id="casualButtonUpdate">Update</button>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal" id="exactamtupdate">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Savings Goal</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <!-- Modal body -->
-          <div class="modal-body">
-            <label> Objective amount:</label>
-            <input type="text" class="form-control" id="objAmt">
-            <label> Amount to save:</label>
-            <input type="text" class="form-control" id="amtOne">
-            <br>
-            <div class="goalButtonUpdate">
-              <button type="button" class="btn btn-success" id="goalButtonUpdate">Update</button>
-            </div>
-          </div>
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="context"></div>
     <footer class="bg-light footer">
       <div class="container">
         <div class="row">

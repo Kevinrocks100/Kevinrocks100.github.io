@@ -26,29 +26,45 @@ firebase.auth().onAuthStateChanged(function(user) {
         </div>
       </nav>
     `
-    const user = firebase.auth().currentUser;
-    if (user) {
-      var uid = user.uid;
-      var goalButton = document.getElementById("goalButton");
-      var casualButton = document.getElementById("casualButton");
-      var goalNameOne = document.getElementById("goalNameOne");
-      var goalNameTwo = document.getElementById("goalNameTwo");
-      var objAmt = document.getElementById("objAmt");
-      var amtOne = document.getElementById("amtOne");
-      var amtTwo = document.getElementById("amtTwo");
-      var database = firebase.database();
-      var usersRef = database.ref('/users');
-      goalButton.addEventListener('click', e => {
-        e.preventDefault();
-        usersRef.child(uid).child(savings).set({
-          first_name: goalNameOne,
-          last_name: objAmt,
-          age: amtOne,
-        });
+    var userID = user.uid;
+    var goalButton = document.getElementById("goalButton");
+    var goal = document.getElementById("goal");
+    var objAmt = document.getElementById("objAmt");
+    var amtSave = document.getElementById("amtSave");
+    var content = document.getElementById("content");
+    var database = firebase.database();
+    var usersRef = database.ref('/Users');
+    var currentUser = usersRef.child(userID);
+    goalButton.addEventListener('click', e => {
+      e.preventDefault();
+      currentUser.child("saving").set({
+        Goal_Name: goal.value,
+        Objective_Amount: objAmt.value,
+        Amount_Save: amtSave.value,
       });
-    }
-  }
-  else {
+      document.getElementById('context').innerHTML = `
+        <div class="container">
+          <div class="card bg-dark text-white">
+            <img src="assets/savings.jpg" class="card-img" alt="Savings" height="200px">
+            <div class="card-img-overlay">
+              <h5 id="goalName" class="card-title"></h5>
+              <p id="objectiveAmount" class="card-text"></p>
+              <p id="amountSave" class="card-text"></p>
+            </div>
+          </div>
+        </div>
+      `
+      currentUser.child("saving").once("value").then(function(snapshot){
+        var goalName = snapshot.val().Goal_Name;
+        var objectiveAmount = snapshot.val().Objective_Amount;
+        var amountSave = snapshot.val().Amount_Save;
+        document.getElementById("goalName").innerHTML = goalName;
+        document.getElementById("objectiveAmount").innerHTML = objectiveAmount;
+        document.getElementById("amountSave").innerHTML = amountSave;
+      });
+    });
+
+  } else {
     document.getElementById("HOME").innerHTML = `
       <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
         <div class="container-fluid" id="container-fluid"><a class="navbar-brand text-white" href="index.html">KCP Budgeting</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
