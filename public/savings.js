@@ -42,7 +42,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         Objective_Amount: objAmt.value,
         Amount_Save: amtSave.value,
       });
-      document.getElementById('context').innerHTML = `
+      document.getElementById('context').innerHTML += `
         <div class="container">
           <div class="card bg-dark text-white">
             <img src="assets/savings.jpg" class="card-img" alt="Savings" height="200px">
