@@ -48,9 +48,9 @@ firebase.auth().onAuthStateChanged(function(user) {
           <div class="card bg-dark text-white">
             <img src="assets/savings.jpg" class="card-img" alt="Savings" height="200px">
             <div class="card-img-overlay">
-              <h5 id="goalName" class="card-title"></h5>
-              <p id="objectiveAmount" class="card-text"></p>
-              <p id="amountSave" class="card-text"></p>
+              <h5 id= ${goalName} class="card-title"></h5>
+              <p id= ${objectiveAmount} class="card-text"></p>
+              <p id= ${amountSave} class="card-text"></p>
             </div>
           </div>
         </div>
@@ -59,9 +59,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         var goalName = snapshot.val().Goal_Name;
         var objectiveAmount = snapshot.val().Objective_Amount;
         var amountSave = snapshot.val().Amount_Save;
-        document.getElementById("goalName").innerHTML = goalName;
-        document.getElementById("objectiveAmount").innerHTML = objectiveAmount;
-        document.getElementById("amountSave").innerHTML = amountSave;
+        document.getElementById(goalName).innerHTML = goalName;
+        document.getElementById(objectiveAmount).innerHTML = objectiveAmount;
+        document.getElementById(amountSave).innerHTML = amountSave;
       });
       x++;
     });
