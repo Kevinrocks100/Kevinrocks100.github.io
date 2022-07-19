@@ -35,9 +35,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     var database = firebase.database();
     var usersRef = database.ref('/Users');
     var currentUser = usersRef.child(userID);
+    var x = 1;
     goalButton.addEventListener('click', e => {
       e.preventDefault();
-      currentUser.child("saving").set({
+      currentUser.child("Saving").child(x).set({
         Goal_Name: goal.value,
         Objective_Amount: objAmt.value,
         Amount_Save: amtSave.value,
@@ -54,7 +55,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           </div>
         </div>
       `
-      currentUser.child("saving").once("value").then(function(snapshot){
+      currentUser.child("Saving").child(x).once("value").then(function(snapshot){
         var goalName = snapshot.val().Goal_Name;
         var objectiveAmount = snapshot.val().Objective_Amount;
         var amountSave = snapshot.val().Amount_Save;
@@ -62,8 +63,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById("objectiveAmount").innerHTML = objectiveAmount;
         document.getElementById("amountSave").innerHTML = amountSave;
       });
+      x++;
     });
-
   } else {
     document.getElementById("HOME").innerHTML = `
       <nav class="navbar navbar-light navbar-expand-md sticky-top bg-dark" id = "nav">
