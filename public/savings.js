@@ -43,20 +43,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         Objective_Amount: objAmt.value,
         Amount_Save: amtSave.value,
       }); 
-      let goalName = document.createElement('div');
-      div.id = 'row' + counter;
-      document.body.appendChild(div);
-
-      let input = document.createElement('input');
-      input.id='search'+counter;
-      input.type = 'search';
-      input.placeholder = 'Search by product name'
-      div.appendChild(input);
-      
-      let input1 = document.createElement('input');
-      input.id='checkbox'+counter;
-      input.type = 'checkbox';
-      div.appendChild(input1);
 
       document.getElementById('context').innerHTML += `
         <div class="container">
@@ -74,9 +60,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         var goalName = snapshot.val().Goal_Name;
         var objectiveAmount = snapshot.val().Objective_Amount;
         var amountSave = snapshot.val().Amount_Save;
-        document.querySelector(h5).innerHTML = goalName;
-        document.querySelector(p).innerHTML = objectiveAmount;
-        // document.querySelector(p).innerHTML = amountSave;
+        document.getElementById(goalName).innerHTML = goalName;
+        document.getElementById(objectiveAmount).innerHTML = objectiveAmount;
+        document.getElementById(amountSave).innerHTML = amountSave;
       });
       x++;
     });
