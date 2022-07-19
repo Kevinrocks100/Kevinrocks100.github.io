@@ -44,27 +44,33 @@ firebase.auth().onAuthStateChanged(function(user) {
         Amount_Save: amtSave.value,
       }); 
 
-      document.getElementById('context').innerHTML += `
+      currentUser.child("Saving").child(x).once("value").then(function(snapshot){
+        document.getElementById('context').innerHTML += `
         <div class="container">
           <div class="card bg-dark text-white">
             <img src="assets/savings.jpg" class="card-img" alt="Savings" height="200px">
             <div class="card-img-overlay">
-              <h5 id= ${goalName} class="card-title"></h5>
-              <p id= ${objectiveAmount} class="card-text"></p>
-              // <p id= ${amountSave} class="card-text"></p>
+              <h5 id="goalName" class="card-title"></h5>
+              <p id="objectiveAmount" class="card-text"></p>
+              <p id="amountSave" class="card-text"></p>
             </div>
           </div>
         </div>
-      `
-      currentUser.child("Saving").child(x).on("value").then(function(snapshot){
-        var goalName = snapshot.val().Goal_Name;
-        var objectiveAmount = snapshot.val().Objective_Amount;
-        var amountSave = snapshot.val().Amount_Save;
-        document.getElementById(goalName).innerHTML = goalName;
-        document.getElementById(objectiveAmount).innerHTML = objectiveAmount;
-        document.getElementById(amountSave).innerHTML = amountSave;
+        `
+        var goalName = snapshot.child("Goal_Name").val();
+        console.log(goalName); 
+        var objectiveAmount = snapshot.child("Objective_Amount").val();
+        console.log(objectiveAmount);
+        var amountSave = snapshot.child("Amount_Save").val();
+        console.log(amountSave);
+        document.getElementById("goalName").id = 'goalName' + (x - 1); 
+        document.getElementById("goalName" + (x - 1)).innerHTML = goalName; 
+        document.getElementById("objectiveAmount").id = "objectiveAmount" + (x - 1);
+        document.getElementById("objectiveAmount" + (x - 1)).innerHTML = objectiveAmount;
+        document.getElementById("amountSave").id = "amountSave" + (x - 1);
+        document.getElementById("amountSave" + (x - 1)).innerHTML = amountSave;
       });
-      x++;
+      ++x;
     });
   } else {
     document.getElementById("HOME").innerHTML = `
