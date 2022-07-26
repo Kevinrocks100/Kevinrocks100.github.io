@@ -36,15 +36,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     var usersRef = database.ref('/Users');
     var currentUser = usersRef.child(userID);
     var x = 1;
-    goalButton.addEventListener('click', e => {
-      e.preventDefault();
-      currentUser.child("Saving").child(x).set({
-        Goal_Name: goal.value,
-        Objective_Amount: objAmt.value,
-        Amount_Save: amtSave.value,
-      }); 
-
-      currentUser.child("Saving").child(x).once("value").then(function(snapshot){
+    currentUser.child("Saving").once("value").then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
         document.getElementById('context').innerHTML += `
         <div class="container">
           <div class="card bg-dark text-white">
@@ -57,17 +50,25 @@ firebase.auth().onAuthStateChanged(function(user) {
           </div>
         </div>
         `
-        var goalName = snapshot.child("Goal_Name").val();
-        var objectiveAmount = snapshot.child("Objective_Amount").val();
-        var amountSave = snapshot.child("Amount_Save").val();
-        document.getElementById("goalName").id = 'goalName' + (x - 1); 
-        document.getElementById("goalName" + (x - 1)).innerHTML = goalName; 
-        document.getElementById("objectiveAmount").id = "objectiveAmount" + (x - 1);
-        document.getElementById("objectiveAmount" + (x - 1)).innerHTML = objectiveAmount;
-        document.getElementById("amountSave").id = "amountSave" + (x - 1);
-        document.getElementById("amountSave" + (x - 1)).innerHTML = amountSave;
+        var goalName = childSnapshot.child("Goal_Name").val();
+        var objectiveAmount = childSnapshot.child("Objective_Amount").val();
+        var amountSave = childSnapshot.child("Amount_Save").val();
+        document.getElementById("goalName").id = 'goalName' + x; 
+        document.getElementById("goalName" + x).innerHTML = goalName; 
+        document.getElementById("objectiveAmount").id = "objectiveAmount" + x;
+        document.getElementById("objectiveAmount" + x).innerHTML = objectiveAmount;
+        document.getElementById("amountSave").id = "amountSave" + x;
+        document.getElementById("amountSave" + x).innerHTML = amountSave;
+        x++
       });
-      ++x;
+    });
+    goalButton.addEventListener('click', e => {
+      e.preventDefault();
+      currentUser.child("Saving").child(x).set({
+        Goal_Name: goal.value,
+        Objective_Amount: objAmt.value,
+        Amount_Save: amtSave.value,
+      }); 
     });
   } else {
     document.getElementById("HOME").innerHTML = `
