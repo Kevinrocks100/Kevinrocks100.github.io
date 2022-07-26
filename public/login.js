@@ -97,9 +97,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
 
     //register when you hit the enter key
-    document
-    .querySelector("#registration-password")
-    .addEventListener("keyup", (e) => {
+    document.querySelector("#registration-password").addEventListener("keyup", (e) => {
       if (event.keyCode === 13) {
         e.preventDefault();
         register();
@@ -124,9 +122,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
 
     //sign in when you hit enter
-    document
-    .querySelector("#login-password")
-    .addEventListener("keyup", (e) => {
+    document.querySelector("#login-password").addEventListener("keyup", (e) => {
       if (event.keyCode === 13) {
         e.preventDefault();
         login();
@@ -136,10 +132,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     const authenticate = (email, password) => {
       const auth = firebase.auth();
       auth.signInWithEmailAndPassword(email, password);
-      firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch(function (error) {
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -154,10 +147,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     };
 
     const signOut = () => {
-      firebase
-      .auth()
-      .signOut()
-      .then(function () {
+      firebase.auth().signOut().then(function () {
         location.reload();
       })
       .catch(function (error) {
@@ -171,9 +161,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       }
     });
 
-    document
-    .querySelector("#forgot-password")
-    .addEventListener("click", () => {
+    document.querySelector("#forgot-password").addEventListener("click", () => {
       const email = document.querySelector("#login-email").value;
       if (email.trim() == "") {
         alert("Enter Email");
@@ -183,9 +171,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
 
     const forgotPassword = (email) => {
-      auth
-      .sendPasswordResetEmail(email)
-      .then(function () {
+      auth.sendPasswordResetEmail(email).then(function () {
         alert("email sent");
       })
       .catch(function (error) {

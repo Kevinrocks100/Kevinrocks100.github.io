@@ -58,11 +58,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         </div>
         `
         var goalName = snapshot.child("Goal_Name").val();
-        console.log(goalName); 
         var objectiveAmount = snapshot.child("Objective_Amount").val();
-        console.log(objectiveAmount);
         var amountSave = snapshot.child("Amount_Save").val();
-        console.log(amountSave);
         document.getElementById("goalName").id = 'goalName' + (x - 1); 
         document.getElementById("goalName" + (x - 1)).innerHTML = goalName; 
         document.getElementById("objectiveAmount").id = "objectiveAmount" + (x - 1);
