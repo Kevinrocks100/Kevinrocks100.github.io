@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
               <li class="nav-item"><a class="nav-link text-white" href="savings.html">Savings</a></li>
             </ul>
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link active" onclick="logout()" ><button class="btn btn-primary" type="button">Logout</button></a></li>
+              <li class="nav-item"><a class="nav-link active" onclick="logout()"><button class="btn btn-primary" type="button">Logout</button></a></li>
             </ul>
           </div>
         </div>
@@ -46,6 +46,8 @@ firebase.auth().onAuthStateChanged(function(user) {
               <h5 id="goalName" class="card-title"></h5>
               <p id="objectiveAmount" class="card-text"></p>
               <p id="amountSave" class="card-text"></p>
+              <button id="updateBtn" class="btn btn-primary" type="button">Update</button>
+              <button id="deleteBtn" class="btn btn-primary" type="button">Delete</button>
             </div>
           </div>
         </div>
@@ -64,6 +66,40 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
     goalButton.addEventListener('click', e => {
       e.preventDefault();
+      currentUser.child("Saving").child(x).set({
+        Goal_Name: goal.value,
+        Objective_Amount: objAmt.value,
+        Amount_Save: amtSave.value,
+      }); 
+      document.getElementById('context').innerHTML += `
+      <div class="container">
+        <div class="card bg-dark text-white">
+          <img src="assets/savings.jpg" class="card-img" alt="Savings" height="200px">
+          <div class="card-img-overlay">
+            <h5 id="goalName" class="card-title"></h5>
+            <p id="objectiveAmount" class="card-text"></p>
+            <p id="amountSave" class="card-text"></p>
+            <button id="updateBtn" class="btn btn-primary" type="button">Update</button>
+            <button id="deleteBtn" class="btn btn-primary" type="button">Delete</button>
+          </div>
+        </div>
+      </div>
+      `
+      currentUser.child("Saving").once("value").then(function(snapshot) {
+        var goalName = snapshot.child(x).child("Goal_Name").val();
+        var objectiveAmount = snapshot.child(x).child("Objective_Amount").val();
+        var amountSave = snapshot.child(x).child("Amount_Save").val();
+        document.getElementById("goalName").id = 'goalName' + x; 
+        document.getElementById("goalName" + x).innerHTML = goalName; 
+        document.getElementById("objectiveAmount").id = "objectiveAmount" + x;
+        document.getElementById("objectiveAmount" + x).innerHTML = objectiveAmount;
+        document.getElementById("amountSave").id = "amountSave" + x;
+        document.getElementById("amountSave" + x).innerHTML = amountSave;
+        x++
+      });
+    });
+    updateBtn.addEventListener('click', e => {
+      e.preventDefault(); 
       currentUser.child("Saving").child(x).set({
         Goal_Name: goal.value,
         Objective_Amount: objAmt.value,
