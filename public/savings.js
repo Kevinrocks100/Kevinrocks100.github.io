@@ -100,6 +100,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
     updateBtn.addEventListener('click', e => {
       e.preventDefault(); 
+      const modal = document.createElement("div"); 
+      const id = modal.setAttribute("id", "updateModal"); 
+      console.log(id);
       currentUser.child("Saving").child(x).set({
         Goal_Name: goal.value,
         Objective_Amount: objAmt.value,
