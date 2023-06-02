@@ -1,11 +1,11 @@
 var firebaseConfig = {
-  apiKey: env.apiKey,
-  authDomain: env.authDomain,
-  databaseURL: env.databaseURL,
-  projectId: env.projectId,
-  storageBucket: env.storageBucket,
-  messagingSenderId: env.messagingSenderId,
-  appId: env.appId
+  apiKey: "AIzaSyBEXrgqXEA54Jvv1l04Px8bTodK1KAEdAc",
+  authDomain: "fir-f80af.firebaseapp.com",
+  databaseURL: "https://fir-f80af-default-rtdb.firebaseio.com",
+  projectId: "fir-f80af",
+  storageBucket: "fir-f80af.appspot.com",
+  messagingSenderId: "371053966260",
+  appId: "1:371053966260:web:81a6970d6b486bef2138e1"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
